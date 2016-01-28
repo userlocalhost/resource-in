@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.dirname(__FILE__)
+
+require "optparse"
+require "resource_integrator"
+require "colorize"
+
+# here is default definition of commandline-options
+options = {
+  :type => 'all',
+}
+parser = OptionParser.new do |opt|
+  opt.banner = <<-EOS
+Usage:  #{"r-in <subcommands>".bold}
+
+#{"Command Overview".bold}
+  #{"r-in list [condition]".bold}
+      list all resource information overview. When you specify a condition, you can filter results.
+  EOS
+end
+
+subparsers = Hash.new {|h,k|
+  puts "No such subcommand: #{k}"
+  exit 1
+}
+subparsers['list'] = OptionParser.new.on('-t [ virtual | physical | all(DEFAULT) ] ') \
+  {|type| options[:type] = type}
+
+command = parser.order!(ARGV).first
+subparsers[ARGV.shift].parse!(ARGV) unless ARGV.empty?
+
+case command
+when ResourceIntegrator::Command::LIST
+  ResourceIntegrator::Command.list(options, ARGV.first)
+else
+  puts parser.banner()
+end
