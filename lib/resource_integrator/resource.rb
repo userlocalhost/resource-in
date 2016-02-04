@@ -1,10 +1,19 @@
 module ResourceIntegrator
   class Resource
-    attr_reader :name, :type
+    attr_reader :name, :type, :drivers
 
     def initialize
-      @name = ''
-      @type = ''
+      @drivers = []
     end
+
+    def show(condition)
+      # get data with filtering
+      data = filter(get_data, condition)
+
+      # show filtered data
+      show_table(Driver::FORMAT, data)
+    end
+
+    include MachineResourceImpl
   end
 end

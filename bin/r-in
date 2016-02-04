@@ -24,7 +24,7 @@ subparsers = Hash.new {|h,k|
   puts "No such subcommand: #{k}"
   exit 1
 }
-subparsers['list'] = OptionParser.new.on('-t [ virtual | physical | all(DEFAULT) ] ') \
+subparsers['list'] = OptionParser.new.on('-t [ computing | all(DEFAULT) ] ') \
   {|type| options[:type] = type}
 
 command = parser.order!(ARGV).first

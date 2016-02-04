@@ -6,14 +6,9 @@ module ResourceIntegrator
   class Machine < Resource
     attr_reader :location, :manager
 
-    def initialize(opts)
+    def initialize
       super
-      @name = opts[:name]
-      @type = opts[:type]
-      @location = opts[:location]
-      @manager = opts[:manager]
+      @drivers = [UCSDriver, VMwareDriver]
     end
-
-    include MachineResourceImpl
   end
 end
