@@ -3,7 +3,7 @@ require_relative 'vmware_driver'
 
 require 'terminal-table/import'
 
-module ResourceIntegrator
+module ResourceIn
   class Command
     LIST = 'list'
 

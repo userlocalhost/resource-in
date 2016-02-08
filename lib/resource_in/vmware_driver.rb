@@ -1,6 +1,6 @@
 require_relative "driver"
 
-module ResourceIntegrator
+module ResourceIn
   class VMwareDriver < Driver
     def initialize
       @command = "/usr/bin/python3 " + File.dirname(__FILE__) + '/driver/vmware/get_servers'

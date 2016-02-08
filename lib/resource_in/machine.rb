@@ -1,7 +1,7 @@
 require_relative "machine_impl"
 require_relative "resource"
 
-module ResourceIntegrator
+module ResourceIn
 
   class Machine < Resource
     attr_reader :location, :manager

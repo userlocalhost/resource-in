@@ -1,6 +1,6 @@
 require 'json'
 
-module ResourceIntegrator
+module ResourceIn
   class Driver
     FORMAT = ['name', 'address', 'status', 'location', 'type', 'manager']
 

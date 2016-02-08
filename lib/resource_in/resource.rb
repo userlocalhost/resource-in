@@ -1,4 +1,4 @@
-module ResourceIntegrator
+module ResourceIn
   class Resource
     attr_reader :name, :type, :drivers
 

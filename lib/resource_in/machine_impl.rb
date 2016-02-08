@@ -1,4 +1,4 @@
-module ResourceIntegrator
+module ResourceIn
   module MachineResourceImpl
     # all methods are private
     private

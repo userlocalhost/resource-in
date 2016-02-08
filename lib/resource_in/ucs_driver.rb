@@ -1,6 +1,6 @@
 require_relative "driver"
 
-module ResourceIntegrator
+module ResourceIn
   class UCSDriver < Driver
     def initialize
       @command = "/usr/bin/python2.7 " + File.dirname(__FILE__) + '/driver/ucs/get_servers'
