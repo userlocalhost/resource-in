@@ -1,8 +1,5 @@
 module ResourceIn
   module MachineResourceImpl
-    # all methods are private
-    private
-
     def get_data
       @drivers.map do |klass|
         obj = klass.new
