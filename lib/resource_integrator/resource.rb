@@ -13,7 +13,5 @@ module ResourceIntegrator
       # show filtered data
       show_table(Driver::FORMAT, data)
     end
-
-    include MachineResourceImpl
   end
 end

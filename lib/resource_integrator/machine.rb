@@ -10,5 +10,7 @@ module ResourceIntegrator
       super
       @drivers = [UCSDriver, VMwareDriver]
     end
+
+    include MachineResourceImpl
   end
 end
