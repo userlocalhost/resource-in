@@ -9,8 +9,6 @@ module ResourceIn
     def get_data
       super.each do |d|
         d['status'] = case d['status']
-        when nil
-          'ok'
         when 'ok'
           'ok'
         else
