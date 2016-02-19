@@ -10,6 +10,10 @@ module ResourceIn
       output(filter(condition, list))
     end
 
+    def create(options)
+      do_create(options)
+    end
+
     ### These methods are assumed to be override by each Resource SubClass
     def list
       # This methods list data from each drivers
@@ -27,6 +31,10 @@ module ResourceIn
     def output(data)
       # This outputs data to STDOUT
       # @input  : Array
+    end
+
+    def do_create(options)
+      # This create resoruce
     end
   end
 end

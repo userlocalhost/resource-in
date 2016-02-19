@@ -29,5 +29,12 @@ module ResourceIn
       end
       puts table_output
     end
+    def do_create(options)
+      @drivers.each do |klass|
+        obj = klass.new
+
+        obj.create(options)
+      end
+    end
   end
 end

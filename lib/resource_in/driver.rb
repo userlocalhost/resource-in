@@ -12,5 +12,8 @@ module ResourceIn
         get_data
       end
     end
+    def create
+      # This methods implemented on each driver
+    end
   end
 end
