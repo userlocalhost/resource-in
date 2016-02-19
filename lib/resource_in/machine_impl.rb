@@ -1,20 +1,22 @@
 module ResourceIn
   module MachineResourceImpl
-    def get_data
+    def list
       @drivers.map do |klass|
         obj = klass.new
 
         obj.get_data
       end.flatten
     end
-    def filter(data, condition)
+    def filter(condition, data)
       data.select do |d|
         cond = false
         cond |= d['name'] =~ /^#{condition}/
         cond |= d['address'] =~ /^#{condition}/
       end
     end
-    def show_table(format, data)
+    def output(data)
+      format = Driver::FORMAT
+
       table_output = table do |t|
         t.headings = format
         data.each do |each|

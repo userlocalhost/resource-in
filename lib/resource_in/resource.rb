@@ -7,11 +7,26 @@ module ResourceIn
     end
 
     def show(condition)
-      # get data with filtering
-      data = filter(get_data, condition)
+      output(filter(condition, list))
+    end
 
-      # show filtered data
-      show_table(Driver::FORMAT, data)
+    ### These methods are assumed to be override by each Resource SubClass
+    def list
+      # This methods list data from each drivers
+      # @output: Array
+    end
+
+    def filter(data, condition)
+      # This implement filters of input data
+      # @input:
+      #   - data      : Array
+      #   - condition : String
+      # @output       : Array
+    end
+
+    def output(data)
+      # This outputs data to STDOUT
+      # @input  : Array
     end
   end
 end
