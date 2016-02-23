@@ -7,14 +7,14 @@ module ResourceIn
       @cachepath = '/tmp/ucs_servers.cache'
     end
     def get_data
-      super.each do |d|
+      super(@cmd_get, @cachepath).each do |d|
         d['status'] = case d['status']
         when 'ok'
           'ok'
         else
           'warning'
         end
-        d['address'] = ''
+        d['address'] = []
       end
     end
   end

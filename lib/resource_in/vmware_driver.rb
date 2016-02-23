@@ -10,7 +10,7 @@ module ResourceIn
       @cachepath = '/tmp/vmware_servers.cache'
     end
     def get_data
-      super.each do |d|
+      super(@cmd_get, @cachepath).each do |d|
         d['status'] = d['status'] == 'green' ? 'ok' : 'warning'
       end
     end

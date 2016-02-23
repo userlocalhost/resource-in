@@ -11,7 +11,7 @@ module ResourceIn
       data.select do |d|
         cond = false
         cond |= d['name'] =~ /^#{condition}/
-        cond |= d['address'] =~ /^#{condition}/
+        cond |= d['address'].any? {|x| x =~ /^#{condition}/}
       end
     end
     def output(data)
@@ -22,11 +22,18 @@ module ResourceIn
         data.each do |each|
           line = []
           format.each_with_index do |k, i|
-            line[i] = each[k]
+            case k
+            when 'address'
+              line[i] = each[k].join("\n")
+            else
+              line[i] = each[k]
+            end
           end
           t << line
         end
       end
+
+      # output to STDOUT
       puts table_output
     end
     def do_create(options)
