@@ -1,4 +1,4 @@
 Gemfile.lock
 .*sw*
 /tmp/
-/lib/resource_in/driver/
+lib/resource_in/driver

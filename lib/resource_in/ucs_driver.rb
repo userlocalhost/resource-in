@@ -15,6 +15,7 @@ module ResourceIn
           'warning'
         end
         d['address'] = []
+        d['boottime'] = ''
       end
     end
   end

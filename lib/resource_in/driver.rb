@@ -2,7 +2,7 @@ require 'json'
 
 module ResourceIn
   class Driver
-    FORMAT = ['name', 'address', 'status', 'location', 'type', 'manager']
+    FORMAT = ['name', 'address', 'status', 'location', 'boottime']
 
     def get_data(command, cachepath)
       if !!cachepath and FileTest.exists?(cachepath)
