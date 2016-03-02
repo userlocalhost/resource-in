@@ -16,6 +16,7 @@ module ResourceIn
         end
         d['address'] = []
         d['boottime'] = ''
+        d['created_by'] = ''
       end
     end
   end
