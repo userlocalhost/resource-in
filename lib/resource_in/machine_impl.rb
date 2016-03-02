@@ -4,7 +4,7 @@ module ResourceIn
       @drivers.map do |klass|
         obj = klass.new
 
-        obj.get_data
+        obj.list_servers
       end.flatten
     end
     def filter(condition, data)
