@@ -1,4 +1,5 @@
 require_relative "driver"
+require 'rbconfig'
 
 module ResourceIn
   class RacktablesDriver < Driver
@@ -7,7 +8,7 @@ module ResourceIn
       @cachepath = '/tmp/cache.racktables'
     end
     def get_lastupdate(vm)
-      invoke("#{@cmd_lastupdate} #{vm}", @cachepath + ".last_update.#{vm}")
+      invoke("#{@cmd_lastupdate} '#{vm}'", @cachepath + ".last_update.#{vm}")
     end
   end
 end

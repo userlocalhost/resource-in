@@ -5,6 +5,8 @@ module ResourceIn
     FORMAT = ['name', 'address', 'status', 'location', 'boottime', 'created_by']
 
     def invoke(command, cachepath = '/dev/null')
+      cachepath.gsub!(' ', '_')
+
       if !!cachepath and FileTest.exists?(cachepath) and not FileTest.zero?(cachepath)
         JSON.parse(File.read(cachepath))
       else
